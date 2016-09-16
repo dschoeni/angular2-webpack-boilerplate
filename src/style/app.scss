@@ -1,0 +1,16 @@
+// Overwrite variables from BS
+@import '_variables';
+
+// Bootstrap
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "bootstrap-sass/assets/stylesheets/_bootstrap";
+
+// Font Awesome
+$fa-font-path: "~font-awesome/fonts/";
+@import "font-awesome/scss/font-awesome";
+
+$roboto: 'Roboto', serif;
+
+body {
+  font-family: $roboto;
+}
