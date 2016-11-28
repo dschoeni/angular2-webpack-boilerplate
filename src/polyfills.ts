@@ -1,16 +1,14 @@
-import 'es6-shim';
+import 'core-js';
 import 'reflect-metadata';
+import { enableProdMode } from '@angular/core';
+
 require('zone.js/dist/zone');
 
 import 'ts-helpers';
 
 if (process.env.ENV === 'build') {
-    // Production
-
+    enableProdMode();
 } else {
-    // Development
-
     Error['stackTraceLimit'] = Infinity;
-
     require('zone.js/dist/long-stack-trace-zone');
 }
