@@ -124,7 +124,7 @@ module.exports = function makeWebpackConfig() {
             {
                 test: /\.scss$/,
                 exclude: root('src', 'app'),
-                loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass?includePaths[]=' + (path.resolve(__dirname, "./node_modules")))
+                loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!sass?includePaths[]=' + (path.resolve(__dirname, "./node_modules")))
             },
 
             // all css required in src/app files will be merged in js files
@@ -144,6 +144,17 @@ module.exports = function makeWebpackConfig() {
 
         ]
     };
+
+    /**
+    * PostCSS
+    * Reference: https://github.com/postcss/autoprefixer-core
+    * Add vendor prefixes to your css
+    */
+    config.postcss = [
+        autoprefixer({
+            browsers: ['last 2 version']
+        })
+    ];
 
     /**
      * Plugins
