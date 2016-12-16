@@ -1,12 +1,17 @@
 {
   "name": "angular2-webpack-boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "scripts": {
     "clean": "rimraf node_modules doc dist && npm cache clean",
     "build": "rimraf dist && webpack --progress --profile --bail",
     "start": "webpack-dev-server --inline --progress --hot --port 8080",
-    "production": "node server/server.js"
+    "production": "node server/server.js",
+    "webdriver:start": "node ./node_modules/protractor/bin/webdriver-manager start",
+    "webdriver:update": "node ./node_modules/protractor/bin/webdriver-manager update",
+    "build:e2e": "tsc -p ./tests/tsconfig.e2e.json",
+    "e2e": "npm run build:e2e && protractor ./protractor.config.js",
+    "postinstall": "npm run webdriver:update"
   },
   "private": true,
   "dependencies": {
@@ -32,7 +37,9 @@
     "morgan": "^1.7.0"
   },
   "devDependencies": {
+    "@types/jasmine": "^2.5.38",
     "@types/node": "^6.0.42",
+    "@types/protractor": "^4.0.0",
     "autoprefixer": "^6.5.3",
     "codelyzer": "0.0.26",
     "copy-webpack-plugin": "^3.0.0",
@@ -41,9 +48,11 @@
     "file-loader": "^0.8.4",
     "html-loader": "^0.4.0",
     "html-webpack-plugin": "^2.8.1",
+    "jasmine": "^2.5.2",
     "json-loader": "^0.5.3",
     "node-sass": "^3.7.0",
     "postcss-loader": "^1.1.1",
+    "protractor": "^4.0.11",
     "raw-loader": "0.5.1",
     "resolve-url-loader": "^1.4.3",
     "rimraf": "^2.5.4",
@@ -54,7 +63,7 @@
     "tslint": "^3.15.1",
     "tslint-loader": "^2.1.5",
     "typedoc": "^0.5.1",
-    "typescript": "2.0.x".
+    "typescript": "2.0.x",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"

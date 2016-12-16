@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "noEmitHelpers": true,
+    "typeRoots": ["./node_modules/@types"],
+    "types": [
+      "node", "jasmine", "protractor"
+    ],
+    "lib": ["es2016"],
+    "outDir": "../dist/tests/"
+  },
+  "include": [
+    "e2e/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
+}
